@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="An LLM User">
+<meta name="dcterms.date" content="2024-02-02">
+<meta name="description" content="An example post from a Jupyter notebook">
 
-<title>My Explorations with LLMs</title>
+<title>My Explorations with LLMs - ChatGPT Got Less Lazy? Open AI’s Newest Model: gpt-4-0125-preview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,196 +115,81 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">ChatGPT Got Less Lazy? Open AI’s Newest Model: gpt-4-0125-preview</h1>
+                  <div>
+        <div class="description">
+          An example post from a Jupyter notebook
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">Laziness</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>An LLM User </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 2, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ChatGPT">ChatGPT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Laziness">Laziness <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Max's Dog">Max's Dog <span class="quarto-category-count">(1)</span></div><div class="category" data-category="logic">logic <span class="quarto-category-count">(2)</span></div><div class="category" data-category="prompting">prompting <span class="quarto-category-count">(2)</span></div><div class="category" data-category="snickers">snickers <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="chatgpt-got-less-lazy-open-ais-newest-model-gpt-4-0125-preview" class="level1">
+<h1>ChatGPT Got Less Lazy? Open AI’s Newest Model: <code>gpt-4-0125-preview</code></h1>
+<ul>
+<li>On January 25, 2024 OpenAI released it’s latest and most advanced GPT model to date intended to compete with Google’s Gemini. &gt; “This model completes tasks like code generation more thoroughly than the previous preview model and is intended to reduce cases of “laziness” where the model doesn’t complete a task. The new model also includes the fix for the bug impacting non-English UTF-8 generations.”</li>
+</ul>
+<section id="how-can-ai-be-lazy" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-ai-be-lazy">How can AI be lazy?</h3>
+<p>When we think next gen AI images of eating pizza rolls and binging Game of Thrones aren’t what comes to mind… but why not? In a december tweet OpenAI acknowledged the issue: &gt; “We’ve heard all your feedback about GPT4 getting lazier! we haven’t updated the model since Nov 11th, and this certainly isn’t intentional. model behavior can be unpredictable, and we’re looking into fixing it.”</p>
+<p>But anyone who’s used ChatGPT has inevitably run into this issue. It’s that keyboard banging moment when you ask it to sort a CSV or write Python code and it might returns a long explanation of how that could be done and recommend the user try to do it themselves. Annoying!</p>
+</section>
+<section id="was-gpt-3.5-better-at-this" class="level3">
+<h3 class="anchored" data-anchor-id="was-gpt-3.5-better-at-this">Was GPT 3.5 better at this?</h3>
+<p>Yes! When I asked each model: “Create a spreadheet for my taxes” This is what they returned:</p>
+<div style="display: flex;">
+<pre><code>&lt;img src="gpt-3.5_example.jpg" width="400" height="400" /&gt;
+&lt;img src="gpt-4_example.jpg" width="400" height="400" /&gt;</code></pre>
+<p></p>
+<p>So is the newest edition really better? We’ll have to wait and see as it’s currently only available throught API.</p>
+</div></section>
+<section id="so-what-can-we-conclude" class="level3">
+<h3 class="anchored" data-anchor-id="so-what-can-we-conclude">So what can we conclude?</h3>
+<p>The problem of AI laziness is really a problem of human laziness, but one that developers have to account for. With a little more effortful prompting it would not be difficult for any of the models to deliver an optimal result, but that’s not the AI dream for many users. We are cognitive misers with brains designed to search for solutions that minimize effort while maximizing results, but we don’t want our AI systems to behave the same way. Rather OpenAI’s common user wants to give the least possible input and receive a maximally polished result. This means creating action oriented models designed to interpret simple prompts and infer several layers of extrapolation and nuance to deliver the desired result. Whether frontier AI companies choose to cater to the laziness of the mass rather than creating more nuanced and specialized systems that produce higher quality responses to higher quality prompts can be debated. What’s became clear from this dilemma is that there’s more that goes into a general purpose model than how well it scores on an SAT, the sheer size of its context window, or its fancy new name. To quote Janet Jackson “What have you done for me lately?” The most commercially viable AI systems will tend towards prioritizing user experience, whether that comes at the expense of accuracy or another measure remains to be seen.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Max" s="" dog,snickers'="" data-listing-date-sort="1707264000000" data-listing-file-modified-sort="1707949100192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-
-<div class="thumbnail">
-<a href="./posts/001_first_post/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/001_first_post/index.html" class="no-external">A test post 3</a></h3>
-<div class="listing-subtitle"><a href="./posts/001_first_post/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Max's Dog'); return false;">Max's Dog</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('snickers'); return false;">snickers</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/001_first_post/index.html" class="no-external">An example post from a Jupyter notebook</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/001_first_post/index.html" class="no-external">
-<div class="listing-date">`Feb 7, 2024`{=html}</div>
-<div class="listing-author">An LLM User</div>
-
-</a></div>
-
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLMs,prompting,logic" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1707949100192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450">
-<div class="thumbnail">
-<p><a href="./posts/000_test_post/index.html" class="no-external"></a></p><a href="./posts/000_test_post/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/000_test_post/gpt3-5.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/000_test_post/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post/index.html" class="no-external">A test post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/000_test_post/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompting'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('logic'); return false;">
-logic
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/000_test_post/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="LLMs,prompting,logic" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1707949100192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/001_my_first_post/index.html" class="no-external"></a></p><a href="./posts/001_my_first_post/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/001_my_first_post/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/001_my_first_post/index.html" class="no-external">A test post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/001_my_first_post/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompting'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('logic'); return false;">
-logic
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/001_my_first_post/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/001_my_first_post/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LLMs,ChatGPT,Laziness" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1707949100196" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="475">
-<div class="thumbnail">
-<p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">ChatGPT Got Less Lazy? Open AI’s Newest Model: gpt-4-0125-preview</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Laziness'); return false;">
-Laziness
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

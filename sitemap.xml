@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2024-02-07T22:30:45.825Z</lastmod>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/002_gpt-4-0125-preview_and_laziness/index.html</loc>
+    <lastmod>2024-02-14T22:18:20.196Z</lastmod>
   </url>
   <url>
-    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/001_first_post/index.html</loc>
-    <lastmod>2024-02-07T22:30:45.825Z</lastmod>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
+    <lastmod>2024-02-14T22:18:20.192Z</lastmod>
   </url>
   <url>
     <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2024-02-07T22:30:45.821Z</lastmod>
+    <lastmod>2024-02-14T22:18:20.192Z</lastmod>
   </url>
   <url>
     <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2024-02-07T22:30:45.821Z</lastmod>
+    <lastmod>2024-02-14T22:18:20.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/001_first_post/index.html</loc>
+    <lastmod>2024-02-14T22:18:20.192Z</lastmod>
   </url>
   <url>
     <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/001_my_first_post/index.html</loc>
-    <lastmod>2024-02-07T22:30:45.825Z</lastmod>
+    <lastmod>2024-02-14T22:18:20.192Z</lastmod>
   </url>
 </urlset>
