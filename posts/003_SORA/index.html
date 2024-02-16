@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Max Orenstein">
+<meta name="dcterms.date" content="2024-02-16">
+<meta name="description" content="As of today OpenAI’s SORA is the newest revelation in a long line of AI breakthroughs. There’s many angles here, but in this post I will explore the safety and misinformation risks of this technology and what Open AI is doing to address them.">
 
-<title>My Explorations with LLMs</title>
+<title>My Explorations with LLMs - Open AI’s SORA: You Can’t Believe What You See…</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,122 +115,95 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Open AI’s SORA: You Can’t Believe What You See…</h1>
+                  <div>
+        <div class="description">
+          As of today OpenAI’s SORA is the newest revelation in a long line of AI breakthroughs. There’s many angles here, but in this post I will explore the safety and misinformation risks of this technology and what Open AI is doing to address them.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Text-to-video</div>
+                <div class="quarto-category">SORA</div>
+                <div class="quarto-category">C2PA Metadata</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Max Orenstein </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 16, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="C2PA Metadata">C2PA Metadata <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ChatGPT">ChatGPT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Laziness">Laziness <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SORA">SORA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Text-to-video">Text-to-video <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="open-ais-sora-you-cant-believe-what-you-see" class="level1">
+<h1>Open AI’s SORA: You Can’t Believe What You See…</h1>
+<ul>
+<li>As of today OpenAI’s SORA is the newest revelation in a long line of AI breakthroughs. There’s many angles here, but in this post I will explore the safety and misinformation risks of this technology and what Open AI is doing to address them.</li>
+</ul>
+<blockquote class="blockquote">
+<p>“Sora is able to generate complex scenes with multiple characters, specific types of motion, and accurate details of the subject and background. The model understands not only what the user has asked for in the prompt, but also how those things exist in the physical world.” - OpenAI</p>
+</blockquote>
+<section id="i-cant-believe-it" class="level3">
+<h3 class="anchored" data-anchor-id="i-cant-believe-it">I Can’t Believe It!</h3>
+<p>Get used to saying that line because OpenAI’s first text-to-video model SORA generates results that not only seem impossible… but often times are. Check out this SORA generated video of a man pondering the history of the universe in a Parisian cafe.</p>
+<blockquote class="blockquote">
+<p>Prompt: An extreme close-up of an gray-haired man with a beard in his 60s, he is deep in thought pondering the history of the universe as he sits at a cafe in Paris, his eyes focus on people offscreen as they walk as he sits mostly motionless, he is dressed in a wool coat suit coat with a button-down shirt , he wears a brown beret and glasses and has a very professorial appearance, and the end he offers a subtle closed-mouth smile as if he found the answer to the mystery of life, the lighting is very cinematic with the golden light and the Parisian streets and city in the background, depth of field, cinematic 35mm film.</p>
+</blockquote>
+<video width="820" height="540" controls="">
+<p>&lt;source src=closeup-man-in-glasses.mp4e.mp4” type=“video/o tag. </p>
+<p>The realistic details of his wrinkles and ear piercing, the light illuminating the grizzle in his beard, the shaky camera angle adding character to the shot. But most of all the micro-expression in his face, down to the minutia of his eyes seem to communicate a deep existential awareness despite this person never having existed. So if this is really the type of product we can at some point expect from an OpenAI product… not only is it unbelievable, but how can we ever believe videos we see online again?</p>
+</video></section>
+<section id="is-c2pa-metadata-a-solution" class="level3">
+<h3 class="anchored" data-anchor-id="is-c2pa-metadata-a-solution">Is C2PA Metadata A Solution?</h3>
+<p>In addition to existing safety methods such as using text classification to reject harmful prompts, OpenAI boasts of include C2PA Metdata when they eventually release SORA to the public. But what is this jumble of letters and numbers?</p>
+<blockquote class="blockquote">
+<p>“C2PA is an open technical standard that allows publishers, companies, and others to embed metadata in media for verifying its origin and related information.” - OpenAI</p>
+</blockquote>
+<p>Theoretically, this guardrail should be able to keep records of where content came from and how it was modified so bad actors can be held in check. For example, if SORA is used to falsify of a politician engaging in hate speech there would be a surveillance apparatus telling us who produced the video and where they are. More detail on how this works is included in the image below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/48d5fc31-5492-4efc-9599-7718b59a65ca-1-0a928a0b-eb0d-4030-bd94-430664015c33.png" class="img-fluid figure-img"></p>
+<figcaption>c2pa_visualglossary.png</figcaption>
+</figure>
+</div>
+<p>However metadata is notoriously unreliable and can easily be removed either intentionally or unintentionally. For example, harmful content that has slithered through other loopholes can easily be replicated through screen recording, and even if a bad actor doesn’t think of this most social media sites automatically remove metadata from uploaded videos to preserve user privacy.</p>
+</section>
+<section id="so-will-we-be-able-to-believe-anything-we-see-online" class="level3">
+<h3 class="anchored" data-anchor-id="so-will-we-be-able-to-believe-anything-we-see-online">So Will We Be Able To Believe Anything We See Online?</h3>
+<p>In a world where US President Joe Biden posts “Lol hey guys” on his TikTok, and millions of jobs have moved online post-pandemic, it seems like the world is more than ever shaped by the content that appears on screens. As already evidenced by misinformation campaigns, fishing scams, and cases of targeted fraud, scrutiny to what people see online must intensify. And most people won’t be ready for this. One risk is that people who haven’t been duped or don’t know they’ve been duped won’t realize the full extent of the issue. As these models become more potent and omnipresent it seems unavoidable that problems will slip through the cracks. While safety measures will be strongly enforced–as evidenced by the issues with C2PA Metadata–these too must be heavily scrutinized. The sensationalist press and engagement-favoring social media algorithms aren’t going to do all this scrutinization so it’s going to need to come from the individuals consuming content in this new media landscape. I’m excited and apprehensive to see what this will look like in the coming months especially with the upcoming US presidential election.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Text-to-video,SORA,C2PA Metadata" data-listing-date-sort="1708041600000" data-listing-file-modified-sort="1708124690989" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
-<div class="thumbnail">
-<p><a href="./posts/003_SORA/index.html" class="no-external"></a></p><a href="./posts/003_SORA/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/003_SORA/index_files/figure-html/48d5fc31-5492-4efc-9599-7718b59a65ca-1-0a928a0b-eb0d-4030-bd94-430664015c33.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/003_SORA/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_SORA/index.html" class="no-external">Open AI’s SORA: You Can’t Believe What You See…</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/003_SORA/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Text-to-video'); return false;">
-Text-to-video
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('SORA'); return false;">
-SORA
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('C2PA Metadata'); return false;">
-C2PA Metadata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/003_SORA/index.html" class="no-external">As of today OpenAI’s SORA is the newest revelation in a long line of AI breakthroughs. There’s many angles here, but in this post I will explore the safety and misinformation risks of this technology and what Open AI is doing to address them.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/003_SORA/index.html" class="no-external">
-<div class="listing-date">
-Feb 16, 2024
-</div>
-<div class="listing-author">
-Max Orenstein
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLMs,ChatGPT,Laziness" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1708124690969" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="470">
-<div class="thumbnail">
-<p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/002_gpt-4-0125-preview_and_laziness/gpt-3.5_example.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">ChatGPT Got Less Lazy? Open AI’s Newest Model: gpt-4-0125-preview</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Laziness'); return false;">
-Laziness
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
