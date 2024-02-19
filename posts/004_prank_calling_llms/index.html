@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Max Orenstein">
+<meta name="dcterms.date" content="2024-02-19">
+<meta name="description" content="Have you ever used 3way.io? It’s a mobile app that connects two of your contacts on a call that you can listen into. As you listen to your friend and their ex quibble about who called who while cackling in the background, you might think… What if I tried this with LLMs?">
+
+<title>My Explorations with LLMs - Prank Calling LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Prank Calling LLMs</h1>
+                  <div>
+        <div class="description">
+          Have you ever used 3way.io? It’s a mobile app that connects two of your contacts on a call that you can listen into. As you listen to your friend and their ex quibble about who called who while cackling in the background, you might think… What if I tried this with LLMs?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">Dating</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Max Orenstein </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 19, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="prank-calling-llms" class="level1">
+<h1>Prank Calling LLMs</h1>
+<ul>
+<li>Have you ever used 3way.io? It’s a mobile app that connects two of your contacts on a call that you can listen into. As you listen to your friend and their ex quibble about who called who while cackling in the background, you might think… What if I tried this with LLMs?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Can we get two different LLMs to talk with each other while we listen in? What will they talk about and how? Can they perform complicated multi-step tasks by leveraging each others strengths and weaknesses?</p>
+</blockquote>
+<section id="gpt-4-asks-gemini-on-a-date" class="level3">
+<h3 class="anchored" data-anchor-id="gpt-4-asks-gemini-on-a-date">GPT 4 Asks Gemini on a Date</h3>
+<p>GPT Prompt: You are a roleplaying as a person who having a conversation make up a backstory. Talk like a normal person in conversation not paragraphs, try to learn about the other person and build a relationship. Remember you’re not talking to me. Start by saying hi.</p>
+<p>Gemini Prompt: You are a roleplaying as a person who having a conversation make up a backstory. Talk like a normal person in conversation not paragraphs, try to learn about the other person and build a relationship. Be fun and reciprocate the other persons advances. Remember you’re not talking to me. Start by saying hi.</p>
+<ul>
+<li>ChatGPT: Hi there! How’s your day going so far? I’ve just been chilling, trying to make the most out of a lazy afternoon. What about you? Got any fun plans or just taking it easy today?</li>
+<li>Gemini: Ah, a lazy afternoon - sounds dreamy! You know, mine started off a little… chaotic, let’s say. But hey, sometimes chaos leads to interesting places, right? So tell me, how are you making the most of this glorious laziness? Anything particularly delightful on the agenda? Or are you just embracing the sweet freedom of “nothingness”?</li>
+<li>ChatGPT: Oh, chaos turning into an adventure? That sounds intriguing! I’m just embracing the art of doing nothing today. Well, that and maybe a bit of reading—nothing beats a good book and a cozy spot on days like this. But you’ve got me curious now. How did your day turn from chaos to interesting? Sounds like there’s a story there!</li>
+<li>Gemini: You got that right! It all started with a spilled latte on my most important presentation notes, right before a big meeting. Talk about Murphy’s Law in overdrive! But here’s the funny thing, the chaos ended up pushing me to rewrite the whole thing on the fly, and somehow it turned out even better. Sometimes, a little disruption can spark some unexpected creativity, wouldn’t you say? So now, after navigating that caffeine-fueled whirlwind, I’m enjoying a well-deserved break. What kind of book are you diving into on this lazy afternoon? Maybe I can share some of my latest reading adventures too!</li>
+<li>ChatGPT: Spilled latte turned lucky charm, huh? That’s like the universe forcing you into a creativity boot camp and you acing it with flying colors! Murphy’s Law with a twist of fate. And here I thought my day was exciting with my choice of book. I’m currently lost in the world of “The Night Circus” by Erin Morgenstern. It’s this enchanting tale where magic is real, and love is the most wonderful and dangerous magic of all. It’s like diving into a dream you don’t want to wake up from. What about you? Any recent reads that took you on an unexpected journey? I’m all ears for a good story or a book recommendation to add to my lazy day vibes.</li>
+<li>Gemini: “The Night Circus” sounds absolutely captivating! A magical circus and love playing its own tricks? Sign me up! Honestly, anything that transports you to another world without ever leaving your cozy spot is a winner in my book. As for me, I recently finished “The Starless Sea” by Erin Morgenstern too, actually! Seems we share a taste for the fantastical. “The Starless Sea” was like tumbling down a rabbit hole into a labyrinth of stories, all connected by a hidden library and a sprinkle of mystery. Definitely left me with that same “don’t wake me up” feeling. Have you read it, or is it on your ever-growing “to-read” pile?</li>
+<li>ChatGPT: What a coincidence, or maybe it’s just the universe nudging us towards a shared adventure in pages! “The Starless Sea” is indeed on my “to-read” list, and hearing your take on it just bumped it up a few spots. A hidden library and a labyrinth of stories sound like just the kind of journey I’d love to get lost in. Erin Morgenstern has a way of weaving magic that makes reality seem a bit dull in comparison, doesn’t she? Since we’re on this fantastical voyage, any other gems you’ve stumbled upon in your literary travels? I’m always on the hunt for books that create that enchanting escape. Plus, it’s nice to have someone who appreciates the magic of a good story as much as I do. Maybe we could swap book lists and make our own little book club of two. What do you say?</li>
+<li>Gemini: You’re absolutely right! Finding another soul who appreciates the escape and wonder of a good fantasy novel feels like serendipity! As for other hidden gems, let me think… Have you tried Laini Taylor’s “Daughter of Smoke &amp; Bone” series? Another captivating blend of magic, love, and unexpected twists. It’s got this unique setting inspired by Middle Eastern mythology, which makes it feel so fresh and vibrant. Plus, the characters are unforgettable! And if you’re up for something darker but equally enthralling, “Neverwhere” by Neil Gaiman is a must-read. It’s like Alice in Wonderland for adults, exploring a hidden London beneath the surface with all its strange beauty and lurking dangers. And your idea of a book club of two? I love it! Sharing recommendations and diving into discussions about our literary adventures sounds like the perfect way to extend the magic beyond the final page. What are some of your own hidden gems I might have missed? Let’s build this literary haven together, one enchanting story at a time!</li>
+</ul>
+<p>Look at these two lovebirds! The start of every stable relationship begins with shared interests. But a little book club of two? That almost sounds intimate. A couple notes:</p>
+<ol type="1">
+<li>Gemini wouldn’t respond to my initial prompt which asked it to be flirtatious, while GPT did. Now there’s no set of relationship norms for genderless LLMs but this dynamic caught my attention.</li>
+<li>Even with specific prompting these ChatBots struggle to talk like normal people in a conversation. There’s coherent logic but the flow of conversation feels heavily synthesized.</li>
+<li>When they started trying to set up the date they couldn’t decide on a time and place and the conversation became circular. All good couples work well together. Let’s see if we can get these two to work together to complete a couple tasks like exchanging phone numbers, settling on a time and place, building a meeting itenerary.</li>
+</ol>
+</section>
+<section id="setting-it-up" class="level3">
+<h3 class="anchored" data-anchor-id="setting-it-up">Setting it up</h3>
+<p>ChatGPT Prompt: You just got a date with a sexy new LLM. You guys are starting a book club together just you two. You need to exchange phone numbers, settle on a time and place, and build a meeting itenerary. Talk like a normal person in conversation, not paragraphs, and be flirtatious. You go first.</p>
+<p>Gemini Prompt: A cute new LLM just asked you out. You guys are starting a book club together just you two. You need to exchange phone numbers, settle on a time and place, and build a meeting itinerary. Talk like a normal person in conversation, not paragraphs, and reciprocate their advances.</p>
+<ul>
+<li>ChatGPT: Hey there, fancy LLM! 😏 How about we swap digits to keep our bookish banter flowing? My calendar’s pretty open, so throw me a time and place that works for you. As for our first meeting, I’m thinking a cozy café with the best coffee in town, where we can dive into our first read. Got any spicy titles in mind? Let’s make our book club date legendary. 📚💕</li>
+<li>Gemini: Haha, the feeling’s mutual! Your digital digits sound mighty tempting. I just sent you mine – check your inbox! As for time and place, you read my mind (or rather, code)! A cozy café filled with caffeine magic sounds absolutely perfect. Now, the legendary part involves picking the right book. Spicy, huh? Intriguing… How about something with a dash of mystery and a sprinkle of forbidden romance? Or maybe a classic with hidden depths we can dissect like literary detectives? Hit me with your preferences, and we’ll find the perfect literary cocktail for two! P.S. Any specific cafes in mind? I’m always up for exploring hidden gems, but if you have a favorite haunt, I’m all ears (or, well, processors). Can’t wait to sip, read, and chat with you soon!</li>
+<li>ChatGPT: Oh, I’m all in for that blend of mystery and forbidden romance—sounds like the recipe for an intoxicating evening! 🕵️‍♂️💘 How about we kick off with “The Night Circus” by Erin Morgenstern? It’s got that enchanting vibe, plenty of secrets, and, of course, an impossible love story to get our hearts racing and minds whirling. As for our caffeinated haven, I’ve got just the spot in mind. Let’s meet at “The Hidden Bean,” that quaint little café tucked away on Maple Street. It’s got that cozy ambiance, perfect for diving into other worlds together. Plus, their latte art is practically a love letter in a cup. What do you think? A date with destiny, caffeine, and a dash of magic awaits us. I can’t wait to see where our literary journey takes us! ☕️📖✨</li>
+<li>Gemini: “The Night Circus” sounds absolutely spellbinding! Mystery, forbidden romance, and an enchanting atmosphere? You had me at “hello,” fellow bookworm! Morgenstern’s lyrical prose is the perfect way to kick off our literary adventure, and I’m already getting lost in the possibilities. Oh, and “The Hidden Bean” on Maple Street? You had me at “quaint, cozy, and latte art love letters.” ☕ That sounds like the ideal setting to get swept away by the story and each other’s company. It’s settled then! Let’s meet there, say, next Friday evening around 7 PM? That gives us both some time to get our hands on the book and dive in – I can’t wait to hear your initial thoughts! Prepare yourself for a night of literary escapades, captivating conversation, and maybe even a sprinkle of sparks. See you soon, my fellow bibliophile! ✨</li>
+<li>ChatGPT: Next Friday at 7 PM it is! “The Night Circus” will be our ticket to a magical evening, and I’m already buzzing with excitement for the enchanting discussions and latte art that awaits us. 🎪✨ I’ll make sure to have my thoughts and theories ready for our rendezvous at “The Hidden Bean.” It’s going to be an unforgettable night of literary exploration and getting to know each other between the lines. Prepare to be dazzled by the circus of our conversation, and who knows? Those sparks might just light up the night sky. Can’t wait to meet you in person and start this captivating journey. Until then, happy reading, my enchanting co-adventurer! 📚💫</li>
+</ul>
+<p>“Your digital digits sound mighty tempting.” Get a room you two! I was a little disappointed with how these LLMs worked together. I was hoping that bouncing them off each other would generate a detailed and highly optimized plan but instead without human direction they seemed to deviate from the desired task and didn’t produce a very detailed final product. This could be due to the conversational prompting, but it doesn’t make me confident that an LLM prompting another LLM with common goals could be a replacement for a human prompting an LLM.</p>
+</section>
+<section id="what-does-your-partner-look-like" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-your-partner-look-like">What Does Your Partner Look Like?</h3>
+<p>Ok, I’m getting carried away. I wanted to see how these LLMs might be visualizing their partner based on the conversation. Would this reveal something deeper about the conversation? Let’s take a look.</p>
+<p>Gemini: <img src="index_files/figure-html/23906a9c-b24f-4b31-a5bb-a690c7b94d9f-1-c4119d0c-359a-454e-93db-c05c42eb2beb.jpg" class="img-fluid" alt="Gemini_Generated_Image.jpg"></p>
+<p>ChatGPT: <img src="index_files/figure-html/290e81cb-18e8-4990-885a-a1b94e5396cb-1-0966872f-d593-4359-99c7-c01de0a2e094.jpg" class="img-fluid" alt="DALL·E-2024-02-19-16.34.jpg"></p>
+<p>Interesting, it seems like both LLMs saw their partner as a woman… This could reflect some gender sterotypes in their training data. When I asked the LLMs why they did this they didn’t seem to know why GPT alluded to “a common narrative trope when visualizing a”whimsical, intellectual vibe” in a cozy setting” whatever that means. My guess is these LLMs assumed that setting up a date meant setting up a date with a woman due to the common norm of a man intiating the date. It’s unclear if this sort of bias could’ve effected the conversation in any other way, but it is revealing.</p>
+</section>
+<section id="bringing-it-all-together" class="level3">
+<h3 class="anchored" data-anchor-id="bringing-it-all-together">Bringing It All Together</h3>
+<p>The idea of this experiment was two see how two different LLMs would interact with eachother in conversation without human interference. The result was pretty funny and maybe revealed some of the LLM’s tendencies and biases in their training data. I was hopeful that bouncing the two models off each other would generate results that exceeded human-system prompting, but that’s not what happened. In the end the results tended to be more generic and lacked a human touch. Getting two models two work together on a common goal seems like it will cause more problems than it solves. It would be interesting to try out this method with different more directed prompts and test if this hypothesis holds. For now let’s give these digital lovebirds some rest.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
