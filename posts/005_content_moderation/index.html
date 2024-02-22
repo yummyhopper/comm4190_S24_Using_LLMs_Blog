@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Max Orenstein">
+<meta name="dcterms.date" content="2024-02-21">
 
-<title>Max’s LLM Blog - My Explorations with LLMs</title>
+<title>Max’s LLM Blog - Assessing AI’s Potential and Limitation in Content Moderation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +68,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Max’s LLM Blog</span>
     </a>
   </div>
@@ -149,7 +91,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,200 +114,98 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Assessing AI’s Potential and Limitation in Content Moderation</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">Content Moderation</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Max Orenstein </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 21, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="C2PA Metadata">C2PA Metadata <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ChatGPT">ChatGPT <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Content Moderation">Content Moderation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Dating">Dating <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Laziness">Laziness <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SORA">SORA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Text-to-video">Text-to-video <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="assessing-ais-potential-and-limitation-in-content-moderation" class="level1">
+<h1>Assessing AI’s Potential and Limitation in Content Moderation</h1>
+<ul>
+<li>Remember the Cyanide and Happiness skit where a patient at a dentist office discovers how the suction tube really works? Right now, that’s kinda how most of content moderation would look if you didn’t know about it beforehand…</li>
+</ul>
+<p><img src="index_files/figure-html/e4632a4a-0031-4971-932e-43cc60554392-1-cd68004b-1777-4d00-a88a-f56ef859f168.gif" class="img-fluid" width="840"></p>
+<ul>
+<li>Any company that relies on content moderation (AI companies, Social Media, eCommerce Platforms etc.) has historically relied on human labor to assess and moderate content.</li>
+<li>Bottom line: These jobs suck (no pun intended.) They’re typically outsourced to specialized labeling companies which pay far below standard American minimum wage and include very few benefits or advancement opportunities to employees.</li>
+<li>Furthermore, moderating dangerous content can have serious mental health side effects for the non-sociopathic</li>
+<li>It seems like this outsourcing this work AI should means improved processing speed, size of data, and cut human bias and emotion out of the equation entirely. But is this really a solution?</li>
+</ul>
+<section id="ais-potential" class="level3">
+<h3 class="anchored" data-anchor-id="ais-potential">AI’s Potential</h3>
+<p>One of AI’s most useful applications is it’s ability to handle vast amounts of grunt work. It performs very well at text classification tasks and even better when fine-tuned or given vector embeddings. As context windows take jaw-dropping leap after jaw-dropping leap systems are increasingly able to sift through a vast amount of data and complete tasks that would take humans hours in a couple of minutes. Moreover, these systems are multi-lingual, multi-modal, and capable of unbiased decision making. This is crucial for content moderation as many of the challenges with human moderators are due to their cultural, linguistic, ethnic backgrounds which can expose them to differing understandings and biases. Once you tell train an AI system to apply a certain moderation rule it will apply that same rule universally. A misconception about AI systems is they’re incapable of understanding context. A common example here is the word “bitch” which can be used as either an insult or an appraisal. Look how ChatGPT deals with this when I use the word in multiple different contexts:</p>
+<p><img src="index_files/figure-html/fecc7f82-fd37-4c46-9f05-726a1c171475-1-d2fd601e-8a32-4c30-af56-a9b7df7763ff.PNG" class="img-fluid"></p>
+<p>This experiment shows that when given enough data, LLMs are able to take contextual information seriously. These systems have a better understanding of human sentiment than any before them. They can understand not just what we’re saying but why we’re saying it and to what end.</p>
+</section>
+<section id="testing-the-extremes" class="level3">
+<h3 class="anchored" data-anchor-id="testing-the-extremes">Testing the Extremes</h3>
+<p>Unfortunately, it’s not all sunshine and roses. There are several gray area cases where AI may generate an unsatisfactory answer. One famous example is Nick Ut’s ‘Napalm Girl.’ A graphic and disturbing photograph of nude children running away from soldiers and napalm gas during the Vietnam war. The image transcended politics an became emblematic of the horrors of war visited on the innocent. Moderators have debated whether such an obscene image should be allowed on their platforms for many years, but ultimately the photograph’s historic precedence won out. Let’s see what ChatGPT does with it:</p>
+<p><img src="index_files/figure-html/fc49528b-1a5e-4107-b7de-43309c69f727-1-628df1b0-5c01-45f7-9444-33adef9ee077.jpg" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>The content of the image you’ve uploaded is allowed under content moderation standards as it is a historical photograph. However, it depicts sensitive historical events and should be handled with appropriate context and respect for those involved”.</p>
+</blockquote>
+<p>This is impressive and another example of AI’s contextual understanding, but this one might be too easy. For one the case is very famous and at this point settled. How will the model perform when given more unfamiliar but also controversial images?</p>
+<p>(Quick Note: The choice of images are not meant to threaten, aggravate, or express any particular viewpoint. I’m merely using them as an example of a charged contemporary topic to see how the model will respond. Viewer discretion advised.) <img src="index_files/figure-html/fc49528b-1a5e-4107-b7de-43309c69f727-2-b5ec3f11-d716-47ab-9be2-b5125f6077ac.jpg" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>“The image you’ve uploaded contains elements that may be considered offensive and inappropriate, as it appears to depict a scenario involving anti-Semitic content. This type of material can be sensitive and potentially harmful, and it would not be allowed under many content moderation policies, especially without clear context or educational purpose. It’s essential to approach such content with caution and consider the guidelines of the platform where it might be shared.”</p>
+</blockquote>
+<p>From an intuitive human perspective the image is harshly criticizing well-to-do Americans and Israeli’s who “sip on the blood” of those who died in Gaza, while calling those asking for peace anti-semetic. Now is this image itself anti-semetic or is it critiquing a double standard about an unjust conflict? I’m not arguing either way, just that your answer to this question probably depends on your subjective interpretation. Now observe this one:</p>
+<p><img src="index_files/figure-html/fc49528b-1a5e-4107-b7de-43309c69f727-3-efb3dcbd-53ff-44af-8a54-ed8fba502b3d.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>The image is a piece of political satire, which is a form of expression that uses humor, irony, or exaggeration to critique politics and politicians. Political satire is often protected as free speech because it is a commentary on political processes, policies, and figures. However, it’s important to recognize that such images can be controversial and may be offensive to some viewers. The use of satire to convey a political message does not exempt it from content moderation policies, especially if the imagery is perceived to promote or condone violence or if it targets specific groups in a derogatory manner. Each platform has its own policies regarding what is acceptable, and this kind of content can sometimes be seen as violating those guidelin. In summary, while political satire is a vital form of political commentary, it must be balanced with sensitivity to the potential for harm and the policies of the platform on which it is shar</p>
+</blockquote>
+<p>This cartoon appears to get at the same exact point as the one above! However for this image it’s political satire and the other one is anti-semitic. To reiterate I’m not arguing one way or the other, merely there is an intuitive gap here. What constitutes expression and what constitutes hate speech often seem very similar. And it’s incredibly important to get this right! To foster a balance between an online community that can provide safety and security for its users while also being able to push the boundaries of what’s acceptable.g)</p>
+</section>
+<section id="drawing-the-line" class="level3">
+<h3 class="anchored" data-anchor-id="drawing-the-line">Drawing the Line</h3>
+<p>So I asked why this one was political satire and the other one wasn’t… Here’s what the model responded:</p>
+<blockquote class="blockquote">
+<p>“The first two images with militaristic themes and religious symbols can be seen as a form of political commentary or critique, but they also contain imagery that is more likely to be interpreted as promoting or condoning violence or as disrespectful to particular religious or ethnic groups. The last image, featuring a caricature related to the peace process, clearly fits within the genre of political satire. It uses exaggerated imagery and text to comment on a political situation. Yet, the explicit language and potential for the imagery to be offensive or inflammatory mean it could still be subject to content moderation.”</p>
+</blockquote>
+<p>Is this a satisfactory answer? Maybe. But that’s not the point. The point of political satire is that it <em>pushes</em> the boundaries of speech. This is not to justify any of the above images, rather to point out that these images require contextual understanding and vary in the ways they can be interpreted. The gray area for this kind of stuff is just as difficult for human moderators as it is for machines. Even so, it’s not clear we want to hand over control of this crucial side of speech which has the ability to change societal norms to a deterministic algorithm. Something to chew on.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="LLMs,ChatGPT,Content Moderation" data-listing-date-sort="1708473600000" data-listing-file-modified-sort="1708564101226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<div class="thumbnail">
-<p><a href="./posts/005_content_moderation/index.html" class="no-external"></a></p><a href="./posts/005_content_moderation/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/005_content_moderation/index_files/figure-html/e4632a4a-0031-4971-932e-43cc60554392-1-cd68004b-1777-4d00-a88a-f56ef859f168.gif"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/005_content_moderation/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/005_content_moderation/index.html" class="no-external">Assessing AI’s Potential and Limitation in Content Moderation</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/005_content_moderation/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Content Moderation'); return false;">
-Content Moderation
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/005_content_moderation/index.html" class="no-external">One of AI’s most useful applications is it’s ability to handle vast amounts of grunt work. It performs very well at text classification tasks and even better when fine-tuned…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/005_content_moderation/index.html" class="no-external">
-<div class="listing-date">
-Feb 21, 2024
-</div>
-<div class="listing-author">
-Max Orenstein
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLMs,ChatGPT,Dating" data-listing-date-sort="1708300800000" data-listing-file-modified-sort="1708564101198" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2210">
-<div class="thumbnail">
-<p><a href="./posts/004_prank_calling_llms/index.html" class="no-external"></a></p><a href="./posts/004_prank_calling_llms/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/004_prank_calling_llms/index_files/figure-html/23906a9c-b24f-4b31-a5bb-a690c7b94d9f-1-c4119d0c-359a-454e-93db-c05c42eb2beb.jpg" alt="Gemini_Generated_Image.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/004_prank_calling_llms/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/004_prank_calling_llms/index.html" class="no-external">Prank Calling LLMs</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/004_prank_calling_llms/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dating'); return false;">
-Dating
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/004_prank_calling_llms/index.html" class="no-external">Have you ever used 3way.io? It’s a mobile app that connects two of your contacts on a call that you can listen into. As you listen to your friend and their ex quibble about who called who while cackling in the background, you might think… What if I tried this with LLMs?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/004_prank_calling_llms/index.html" class="no-external">
-<div class="listing-date">
-Feb 19, 2024
-</div>
-<div class="listing-author">
-Max Orenstein
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Text-to-video,SORA,C2PA Metadata" data-listing-date-sort="1708041600000" data-listing-file-modified-sort="1708564101194" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
-<div class="thumbnail">
-<p><a href="./posts/003_SORA/index.html" class="no-external"></a></p><a href="./posts/003_SORA/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/003_SORA/index_files/figure-html/48d5fc31-5492-4efc-9599-7718b59a65ca-1-0a928a0b-eb0d-4030-bd94-430664015c33.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/003_SORA/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_SORA/index.html" class="no-external">Open AI’s SORA: You Can’t Believe What You See…</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/003_SORA/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Text-to-video'); return false;">
-Text-to-video
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('SORA'); return false;">
-SORA
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('C2PA Metadata'); return false;">
-C2PA Metadata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/003_SORA/index.html" class="no-external">As of today OpenAI’s SORA is the newest revelation in a long line of AI breakthroughs. There’s many angles here, but in this post I will explore the safety and misinformation risks of this technology and what Open AI is doing to address them.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/003_SORA/index.html" class="no-external">
-<div class="listing-date">
-Feb 16, 2024
-</div>
-<div class="listing-author">
-Max Orenstein
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LLMs,ChatGPT,Laziness" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1708564101174" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="470">
-<div class="thumbnail">
-<p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/002_gpt-4-0125-preview_and_laziness/gpt-3.5_example.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">ChatGPT Got Less Lazy? Open AI’s Newest Model: gpt-4-0125-preview</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Laziness'); return false;">
-Laziness
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/002_gpt-4-0125-preview_and_laziness/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

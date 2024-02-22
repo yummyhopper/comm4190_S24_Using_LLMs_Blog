@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/002_gpt-4-0125-preview_and_laziness/index.html</loc>
-    <lastmod>2024-02-19T22:10:16.685Z</lastmod>
+    <lastmod>2024-02-22T01:08:21.174Z</lastmod>
   </url>
   <url>
-    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/003_SORA/index.html</loc>
-    <lastmod>2024-02-19T22:10:16.705Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2024-02-19T22:10:16.681Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2024-02-19T22:10:16.681Z</lastmod>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/005_content_moderation/index.html</loc>
+    <lastmod>2024-02-22T01:08:21.226Z</lastmod>
   </url>
   <url>
     <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/004_prank_calling_llms/index.html</loc>
-    <lastmod>2024-02-19T22:10:16.713Z</lastmod>
+    <lastmod>2024-02-22T01:08:21.198Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2024-02-22T01:08:21.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2024-02-22T01:08:21.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/posts/003_SORA/index.html</loc>
+    <lastmod>2024-02-22T01:08:21.194Z</lastmod>
   </url>
 </urlset>

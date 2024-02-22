@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/005_content_moderation/index.html",
       "/posts/004_prank_calling_llms/index.html",
       "/posts/003_SORA/index.html",
       "/posts/002_gpt-4-0125-preview_and_laziness/index.html"
