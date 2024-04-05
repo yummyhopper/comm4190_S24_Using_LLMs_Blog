@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/012_LangChain_1/index.html",
       "/posts/011_health_misinformation/index.html",
       "/posts/010_personality/index.html",
       "/posts/009_uncensored_models/index.html",

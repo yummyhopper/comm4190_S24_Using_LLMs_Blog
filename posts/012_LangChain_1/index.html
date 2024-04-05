@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Max Orenstein">
-<meta name="dcterms.date" content="2024-03-28">
-<meta name="description" content="Hume’s EVI is an API powered by our empathic large language model (eLLM), which understands and emulates tones of voice, word emphasis and more to optimize human-AI interaction.">
+<meta name="dcterms.date" content="2024-04-05">
+<meta name="description" content="Personalization is all the rage for marketers. In this post I explore how content marketers can leverage AI to level-up this crucial factor.">
 
-<title>Max’s LLM Blog - This AI is happy and knows when you are too…</title>
+<title>Max’s LLM Blog - Automated Email Marketing Part #1: The Power of Personalization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,16 +116,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">This AI is happy and knows when you are too…</h1>
+      <h1 class="title">Automated Email Marketing Part #1: The Power of Personalization</h1>
                   <div>
         <div class="description">
-          Hume’s EVI is an API powered by our empathic large language model (eLLM), which understands and emulates tones of voice, word emphasis and more to optimize human-AI interaction.
+          Personalization is all the rage for marketers. In this post I explore how content marketers can leverage AI to level-up this crucial factor.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Hume</div>
-                <div class="quarto-category">Personality</div>
-                <div class="quarto-category">Emotional Intelligence</div>
+                <div class="quarto-category">LangChain</div>
+                <div class="quarto-category">Marketing</div>
+                <div class="quarto-category">Personalization</div>
               </div>
                   </div>
   </div>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 28, 2024</p>
+        <p class="date">April 5, 2024</p>
       </div>
     </div>
     
@@ -162,35 +162,38 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="this-ai-is-happy-and-knows-when-you-are-too" class="level1">
-<h1>This AI is happy and knows when you are too</h1>
-<p>Whoever cracks AI communication is going to be very very rich. And I don’t just mean being able to type a message into an LLM and get a good output. I mean all of the subtleties of human communication that are difficult to explain and even more difficult to train. I’m talking about that “it” factor, charisma, rizz. Well this newest AI breakthrough called Hume is claiming to have taken a bite out of this problem.</p>
+<section id="automated-email-marketing-part-1-the-power-of-personalization" class="level1">
+<h1>Automated Email Marketing Part #1: The Power of Personalization</h1>
+<p>This post will cover: - The advantages and drawbacks of personalization for marketers and how AI fits into the picture - My idea for project that integrates existing common e-commerce marketing tools with LangChain to create personalized email marketing campaigns - A look at other AI content marketing tools and the benefits and drawbacks of creating your own tools</p>
+<section id="what-is-personalization-and-why" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-personalization-and-why">What is Personalization and Why?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/6ea1287f-715c-43b5-857f-63a13f2e6cd0-1-a0681792-5f7d-4825-9548-3e46b988999d.PNG" class="img-fluid figure-img"></p>
+<figcaption>https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-personalization</figcaption>
+</figure>
+</div>
+<p>Personalization is all the rage for marketers. From a May 2023 Mckinsey article titled <em>What is personalization?</em>:</p>
 <blockquote class="blockquote">
-<p>“Hume’s EVI is an API powered by our empathic large language model (eLLM), which understands and emulates tones of voice, word emphasis and more to optimize human-AI interaction.” - Hume’s Website</p>
+<p>“Personalization marketing has real advantages for companies: it can reduce customer acquisition costs by as much as 50 percent, lift revenues by 5 to 15 percent, and increase marketing ROI by 10 to 30 percent. Personalization has also been shown to improve performance and provide better customer outcomes.”</p>
 </blockquote>
-<p><img src="index_files/figure-html/a8eecc84-1d07-4118-bf65-1299418829f3-1-8b775c42-310b-4f9e-b712-126ce8bbf792.jpg" class="img-fluid"></p>
-<section id="emotionally-smarter-than-you" class="level3">
-<h3 class="anchored" data-anchor-id="emotionally-smarter-than-you">Emotionally smarter than you</h3>
-<p>Warning: The first couple seconds of talking with Hume may be shocking. We’ve never seen an AI system that models human speech patterns so accurately and understands human emotion on such a deep level. Hume is trained on video of people in conversation expressing various emotions and has been fine-tuned for emotional language. It understands minute facial gestures and how they correspond with your emotional state as well as vocal inflections that can carry different connotations within the same sentence. This is the true essence of communication as an exchange of signals. The actual words we say do only some of the work in our colloquial conversations. We also rely on non-verbal cues, body language, tempo, rhythm, tonality, expressions, and on and on. Hume has stated the goal of building AI that models all modalities of human expression. What this means is from a bird’s eye view is AI that will eventually be able to express itself as well as we do. While that technology is no doubt far away, you can already see the importance that AI systems being able to express themselves will have.</p>
-<p>One of the most popular apps in the app store right now is Character AI. Sitting at #41 across all apps in entertainment Character AI is one of the most widely used AI platforms in the world. The app allows you to create and chat with mini-fined conversational “characters.” These characters each have their own unique personality and are often times insightful and hilarious. In half an hour I argued with Julius Caesar about the merits of democracy, got called names by Nietzche, and asked a group chat full of famous historical figures about the meaning of life. It was a fun, insightful and hilarious experience and taught me one important lesson: AI systems that are better able to form personal connections with humans are so much better. In fact for consumer purposes I think this will be one of the most important factors in the AI arms race. People will prefer models that they <em>like</em> to models that may perform slightly better on some general accuracy measurement. Empathetic AI is not just a fun side-task. It will be an essential feature of the future of AI that shouldn’t be overlooked.</p>
-<p><img src="index_files/figure-html/f99e8a70-0e3f-40cd-9e7a-530f63dda4e3-1-486dbbee-e725-4e97-9f8e-81d00ecc1fcb.gif" class="img-fluid"></p>
+<p>Speaking from my own experience as a sales rep, personalization is one of the most important things customers care about. Whether or not it’s genuine we all want to feel seen, acknowledged, and welcomed by a company before we even consider buying a product. Imagine if you went through life talking to everyone the same way… That’s just not how the world works. Addressing your professor as bro or your friends as sir wouldn’t feel right. So of course marketers who try to pidgeon hole their customers with one specific style of content are going to be at a disadvantage. The only issue is until recently, truly personalized content was a big ask. Sure you could look at demographics and behavioral graphics, cluster groups of customers together, and target marketing campaigns based on a statistically related set of factors… but that’s really slow and anyways no two customers are really the same. This is where accessible data, machine learning algorithms, and AI content creation can be a real game changer. What if marketers could design content so specific and so personalized that each customer feels personally acknowledged by the company? And what if they could design this content dynamically in a matter of seconds? This is the future of content marketing.</p>
 </section>
-<section id="empathetic-ai" class="level3">
-<h3 class="anchored" data-anchor-id="empathetic-ai">Empathetic AI</h3>
-<p>I generally hate the word “empathetic.” I shouldn’t say that, I’m not anti-caring about people. I hate the way the word “empathy” gets used by people who are just trying to further their own goals. Empathy is a catch-all term that encompasses all human ability to understand the feelings of others, however it’s more often used to moralize and paint one side of an argument as virtuous and beyond reproach. Labeling a view empathetic is not an empirically substantive argument, almost everybody argues from a place of empathy and more often differences arrive from a difference in experience rather than values. That’s why I a product being labeled as “Empathetic” AI gives me pause. Don’t get me wrong I see the potential for this technology:</p>
+<section id="a-look-at-an-early-stage-industry" class="level3">
+<h3 class="anchored" data-anchor-id="a-look-at-an-early-stage-industry">A Look at an Early-Stage Industry</h3>
+<p><img src="index_files/figure-html/52bbd50f-0ad8-454f-bdc6-3883cf28fd7c-1-60b5f0c2-688d-422d-ae07-38fe52e442b1.PNG" class="img-fluid"></p>
+<p>“A/B Testing is Dead” confidently proclaims OfferFit’s Website, “We Merge Human Creativity with AI” on Persado’s, “More Clicks, Conversions, and Customers with AI Content” writes Phrasee. These are just a few of the start-ups looking to cash in on a new wave of content marketing. But how effective are these services really? And is it easier to implement these solutions in-house? These services have a couple of crucial hoops they need to jump through:</p>
 <ul>
-<li>Therapy: AI systems could understand and diagnose patients more precisely than psychologists for free and with less stigma.</li>
-<li>Education: AI can improve the quality of education by providing a more personal student-teacher connection for free and with more flexibility.</li>
-<li>Content Moderation: AI systems will be better at detecting emotions and thus hate speech, bullying, etc.</li>
+<li>Brand alignment: LLMs are notoriously unpredictable. There’s nothing more important in marketing than maintaining consistency and brand integrity, and it may feel like a leap of faith to trust AI with this crucial attribute. Designing a system that will be can be customized to align with any brand style could prove to be a big ask.</li>
+<li>Content Diversity: While alignment is crucial a diversity of content is too. There’s no point in an LLM producing content for customers if it’s going to all be the same sort of thing. Remember, the dream is true 1:1 personalization of content, but that must also be reconciled with brand alignment.</li>
+<li>Performance Optimization: For business to give money to a startup claiming to personalize marketing content, that business needs reason to think that that content will outperform their current content. Part of the job for these tools is being agile and responding to performance data within the target demographic. If you want to kill A/B testing, you have to prove you can beat A/B testing.</li>
 </ul>
-<p>But I don’t think these use cases paint the full story for what this breakthrough means. On top of the good use cases “empathetic” AI creates, there are also bad use cases:</p>
-<ul>
-<li>Better Fishing Campaigns: AI will be able to understand and manipulate human emotion dynamically and at a higher level.</li>
-<li>More Persuasive DeepFakes: AI will resemble human emotionality and be able to reproduce misleading content with more realism.</li>
-<li>Death of Emotional Privacy: AI systems will now be able to track how you feel in response to a certain stimulus, information we may not want in the hands of advertisers, companies, or the government</li>
-</ul>
-<p><img src="index_files/figure-html/2f928f86-84f6-4d3e-9ccb-7d86dc16a07e-1-1a593c56-b6af-4e48-8259-2065755acefd.jpg" class="img-fluid"></p>
-<p>One of the first things I asked Hume to do was curse, it turns out the thing is PR trained. However, how easy it will be to jailbreak this thing or strip off the safety features of the open-source version remains to be seen. Whatever the case, this technology will continue to progress until it gets regulated. It’s likely that in the future we’ll have more companies claiming to have built emotionally intelligent AI, the frontier models will improve with great specificity and accuracy in modeling human emotion, and the technology will move to new frontiers of discovery i.e.&nbsp;different modalities of human communication. Ahhh yes, yet another thing to keep us up at night in a mixture of nervous fretting and hopeful excitement.</p>
+<p>These challenges are enough to make some brands apprehensive about integrating such strategies into their workflows. However, if these methods prove successful brands that are late to the party may get left behind. Luckily, there’s an alternative that may be better suited for certain businesses. In-house development. What’s the point of open-source if you don’t use it? Apprehensive brands can exact precise control over the behavior of these models by designing them on their own. Here’s how this might work.</p>
+</section>
+<section id="e-commerce-email-marketing-campaign-using-langchain" class="level3">
+<h3 class="anchored" data-anchor-id="e-commerce-email-marketing-campaign-using-langchain">E-commerce Email Marketing Campaign Using LangChain</h3>
+<p><img src="index_files/figure-html/f081bad5-ec40-4fda-a1be-b6da5ae9629d-1-9d388138-fa7e-40a2-92cf-88f4d7824cd2.webp" class="img-fluid"></p>
+<p>In the coming posts I will begin building a LangChain program that connects external customer data to an AI model, generates personalized e-mails based on that data, and sends them off to customers all with the press of a button. The goal is to create content that excels on all three parameters</p>
 
 
 </section>
