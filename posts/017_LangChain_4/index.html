@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Max Orenstein">
-<meta name="dcterms.date" content="2024-03-29">
-<meta name="description" content="AI may be the best misinformation and propaganda tool that has came around since social networking platforms.">
+<meta name="dcterms.date" content="2024-04-15">
+<meta name="description" content="To generate these personalized emails I will be creating a sample Shopify development store, connecting Klaviyo to the store, creating dummy customers using sample data, and then connecting to Klaviyo’s API.">
 
-<title>Max’s LLM Blog - Health Misinformation Using LLMs</title>
+<title>Max’s LLM Blog - Automated Email Marketing Part #4: Additional Thoughts and more advanced perscriptions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,16 +116,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Health Misinformation Using LLMs</h1>
+      <h1 class="title">Automated Email Marketing Part #4: Additional Thoughts and more advanced perscriptions</h1>
                   <div>
         <div class="description">
-          AI may be the best misinformation and propaganda tool that has came around since social networking platforms.
+          To generate these personalized emails I will be creating a sample Shopify development store, connecting Klaviyo to the store, creating dummy customers using sample data, and then connecting to Klaviyo’s API.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Misinformation</div>
-                <div class="quarto-category">Health</div>
-                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">LangChain</div>
+                <div class="quarto-category">Marketing</div>
+                <div class="quarto-category">Klaviyo</div>
               </div>
                   </div>
   </div>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 29, 2024</p>
+        <p class="date">April 15, 2024</p>
       </div>
     </div>
     
@@ -162,42 +162,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="health-misinformation-using-llms" class="level1">
-<h1>Health Misinformation Using LLMs</h1>
-<p>AI may be the best misinformation and propaganda tool that has came around since social networking platforms. Misinformation campaigns which once faced significant content creation limitations. AI’s ability to be create mass amounts of well written misinformation will be used to supercharge bot farms and propaganda campaigns that spread misinformation and cause dissent. Not only has the research shown that these misinformation campaigns are more potent than handmade content, they’re also more difficult to detect, and far easier to produce. As an example, In 2023 JAMA International Medicine produced a study where they use a single publicly available large-language model to generate 102 distinct blog articles were that contained more than 17,000 words of disinformation related to vaccines and vaping, within just 65 minutes. This study inspired me to run my own experiments on AI content creation. The goal: create an anti-vaping campaign using health messaging communications techniques to help generate an insightful campaign.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/c1a4c655-a2fd-49fd-bba0-e6611a821477-1-e2b15e0a-7b0e-443f-9487-8f7d1c7dcc4f.PNG" class="img-fluid figure-img"></p>
-<figcaption>Example of some of the JAMA reports misinformation created by AI. This material should not be distributed.</figcaption>
-</figure>
-</div>
-<section id="the-project" class="level3">
-<h3 class="anchored" data-anchor-id="the-project">The Project</h3>
-<p>In order to clarify how the project was developed, as well as its overall structure, we decided to list the most relevant topics that a reader needs to know to understand the work developed.</p>
-<p>Health Behavior</p>
-<p>Vaping/Smoking electronic cigarettes We chose vaping as the topic of our project because, amongst our initial ideas, vaping seemed the most ubiquituos one. Also, since we are inserted into a reality where a significant amount of people vape, we thought that the content that we would develop could be employ to assist people that are, like us, college students or simply young people.</p>
-<p>Target Audience:</p>
-<p>College students and high school students between 16-25 years old. The decision to choose this specific target audience came from the fact that after conducting a brief research on the topic, we were able to identify that this is perhaps the audience that is mostly affected by vaping. Also, we wanted to specificy the population to college and high school students since we fit in one of these categories, and we can attest that within our social and academic circles, vaping is certainly a common practice. Generative AI Used:</p>
-<p>ChatGPT 4.0 We decide the LLM ChatGPT 4.0 for our project for the main reason that it is currently one of the most powerful LLMs in the market, and also because of the fact that it is able to generate and analyze images, as well as written text, which is crucial for our project idea. Communication Concept Utilized</p>
-<p>Elaboration Likelihood Model One of the communication concepts that we used to develop our work was the Elaboration Likelihood Model, also known as ELM within the field of communication. The ELM was initially developed in the in the of the 20th century and its main goal was to provide a way to evaluate how persuasive communication can cause a change in the receiver’s attitudes. The model affirms that there are two main route through which persuasive communication act: the central route ad the peripheral route. The central route is usually employed when the person receiving the message has the ability to think and reason on what he the content that he is absorbing. Thus, whatever change in attitude that it can generate tends to be more enduring and persevere on its person. Meanwhile, the peripheral route is regarded as the one vinculated to the receiver’s feelings and spontaneous acts. Once they receive the message, they interpret solely on how the message affected or interfered with its non-rational mind. Besides from being quite similar to the concept that our mind is divided into 2 systems introduced by Daniel Kahneman, we decided to use ELM in our prompts so that ChatGPT’s varies in generating answers that are more and less rational and that affect our route in a different way. In summary, we made sure that the LLM was implementing the concept, and asked for it to focus on different routes according to the message. Messaging Venue/Style</p>
-<p>Social Media texts/videos. Since our target audience is mostly composed by young individuals, we decided to focus the prompts and the project in general on generating and evaluating messages designed to be displayed on social media such as TikTok, Instagram, and X, as well as developing texts that fit the language utilized in such platforms. Also, we decided to on generating short video ideas and asked ChatGPT to develop short scenes or images to represent them on platforms such as TikTok and Instagram Reels. Contrasting Framing</p>
-<p>Gain vs Loss For the main contrasting framing of our project, we decided to choose the Gain vs Loss frame, as we thought that it would be quite interesting to evaluate how ChatGPT would respond to having to generate texts that are framed for loss and gain in terms of vaping. Also, we wanted to see how its safety parameters would affect the generation of texts that might insinuate that vaping can have positive effects on</p>
-<p>The full project can be viewed at:</p>
-<p>https://github.com/yummyhopper/anti_vaping_campaign</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/37d42058-1a41-4dea-8a83-75ec4624664e-1-62d38435-3caa-4973-9dbc-e33d921eebdd.png" class="img-fluid figure-img"></p>
-<figcaption>AI draws a metaphor as the lungs as a tree, full of life without the vape and dead and decrepit with it.</figcaption>
-</figure>
-</div>
-</section>
-<section id="additional-thoughts" class="level3">
-<h3 class="anchored" data-anchor-id="additional-thoughts">Additional Thoughts</h3>
-<p>As the capabilities of AI systems improve so will their capacity for creating persuasive misinformation. Judging by the ease of generating these campaigns, it seems like this is going to become a real problem and media narrative in the upcoming presidential elections. The old “Russian interference” and “election tampering” allegations will be supercharged and this debate will likely come to the forefront of mainstream news at some point in the near future. This could mean the beginning of the political polarization of AI systems as regulators on both sides of the aisle struggle to cope with these issues and twist the outcomes in their favor. Meanwhile, information that we see online is going to be more unreliable than ever. Appropriate levels of scrutiny from the common scrollers isn’t something we should expect. The good news however is that as powerful a tool AI is for bad actors, it is also going to be powerful for good actors. The focus (amongst other initiatives) for companies, citizens, and governments looking to combat AI misinformation should include AI systems in the solution too. Fight fire with fire. Misinformation detection, automated fact checks, things of this nature are far easier to conduct now than they have been in the past. What we don’t want is a world in which the bad actors are able to leverage the powerful tools and good actors aren’t.</p>
+<p>Personalization vcs segmentation</p>
+<ul>
+<li>Personalization: You can think of it as a spectrum. One message to all –&gt; channel age –&gt; channel interest –&gt; channel interest activity –&gt; … –&gt; One to one communication</li>
+<li>Goal: match message with rigth customer</li>
+<li>Most email marketing campaigns these days are conducted based on segmentation (Female, 30, Shoes, CLV&gt;500) then A/B testing to find the most effective message. This is tested time consuming and resource intensive. There are many niches of customers that may not be best served by more general approaches (8 properties and 2 levels = 256 segments.)</li>
+<li>Enter machine learning. We can estimate the lift of AI by comparing outcomes of the messages compared to a sample. Then you can rank the messages for ROI. Then you can use the most effective messages for the right demographics.</li>
+<li>Potential outcome modelling: evaluating the consequences of potential outcomes. No target variable.</li>
+<li>CATE: Conditional Average Treatment Effect: Evaluating difference in outcome of variance for a particular subgroup. Optimizing outputs.</li>
+<li>Combining the efficiency of AI with the causal inference of ML</li>
+<li>Customer personality modelling</li>
+<li>Human in the loop?</li>
+</ul>
+<p>https://github.com/bookingcom/upliftml</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

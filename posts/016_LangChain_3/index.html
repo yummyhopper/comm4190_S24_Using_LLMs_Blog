@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Max Orenstein">
-<meta name="dcterms.date" content="2024-03-29">
-<meta name="description" content="AI may be the best misinformation and propaganda tool that has came around since social networking platforms.">
+<meta name="dcterms.date" content="2024-04-15">
+<meta name="description" content="To generate these personalized emails I will be creating a sample Shopify development store, connecting Klaviyo to the store, creating dummy customers using sample data, and then connecting to Klaviyo’s API.">
 
-<title>Max’s LLM Blog - Health Misinformation Using LLMs</title>
+<title>Max’s LLM Blog - Automated Email Marketing Part #3: Getting LLMs to Sell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -116,16 +150,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Health Misinformation Using LLMs</h1>
+      <h1 class="title">Automated Email Marketing Part #3: Getting LLMs to Sell</h1>
                   <div>
         <div class="description">
-          AI may be the best misinformation and propaganda tool that has came around since social networking platforms.
+          To generate these personalized emails I will be creating a sample Shopify development store, connecting Klaviyo to the store, creating dummy customers using sample data, and then connecting to Klaviyo’s API.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Misinformation</div>
-                <div class="quarto-category">Health</div>
-                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">LangChain</div>
+                <div class="quarto-category">Marketing</div>
+                <div class="quarto-category">Klaviyo</div>
               </div>
                   </div>
   </div>
@@ -143,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 29, 2024</p>
+        <p class="date">April 15, 2024</p>
       </div>
     </div>
     
@@ -162,38 +196,116 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="health-misinformation-using-llms" class="level1">
-<h1>Health Misinformation Using LLMs</h1>
-<p>AI may be the best misinformation and propaganda tool that has came around since social networking platforms. Misinformation campaigns which once faced significant content creation limitations. AI’s ability to be create mass amounts of well written misinformation will be used to supercharge bot farms and propaganda campaigns that spread misinformation and cause dissent. Not only has the research shown that these misinformation campaigns are more potent than handmade content, they’re also more difficult to detect, and far easier to produce. As an example, In 2023 JAMA International Medicine produced a study where they use a single publicly available large-language model to generate 102 distinct blog articles were that contained more than 17,000 words of disinformation related to vaccines and vaping, within just 65 minutes. This study inspired me to run my own experiments on AI content creation. The goal: create an anti-vaping campaign using health messaging communications techniques to help generate an insightful campaign.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/c1a4c655-a2fd-49fd-bba0-e6611a821477-1-e2b15e0a-7b0e-443f-9487-8f7d1c7dcc4f.PNG" class="img-fluid figure-img"></p>
-<figcaption>Example of some of the JAMA reports misinformation created by AI. This material should not be distributed.</figcaption>
-</figure>
+<section id="automated-email-marketing-part-3-getting-llms-to-sell" class="level1">
+<h1>Automated Email Marketing Part #3: Getting LLMs to Sell</h1>
+<div id="8d70ce5a-fc19-48ff-b4ac-540f7b16f4c5" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Incorporate </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Try different models</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Send off emails on its own</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="the-project" class="level3">
-<h3 class="anchored" data-anchor-id="the-project">The Project</h3>
-<p>In order to clarify how the project was developed, as well as its overall structure, we decided to list the most relevant topics that a reader needs to know to understand the work developed.</p>
-<p>Health Behavior</p>
-<p>Vaping/Smoking electronic cigarettes We chose vaping as the topic of our project because, amongst our initial ideas, vaping seemed the most ubiquituos one. Also, since we are inserted into a reality where a significant amount of people vape, we thought that the content that we would develop could be employ to assist people that are, like us, college students or simply young people.</p>
-<p>Target Audience:</p>
-<p>College students and high school students between 16-25 years old. The decision to choose this specific target audience came from the fact that after conducting a brief research on the topic, we were able to identify that this is perhaps the audience that is mostly affected by vaping. Also, we wanted to specificy the population to college and high school students since we fit in one of these categories, and we can attest that within our social and academic circles, vaping is certainly a common practice. Generative AI Used:</p>
-<p>ChatGPT 4.0 We decide the LLM ChatGPT 4.0 for our project for the main reason that it is currently one of the most powerful LLMs in the market, and also because of the fact that it is able to generate and analyze images, as well as written text, which is crucial for our project idea. Communication Concept Utilized</p>
-<p>Elaboration Likelihood Model One of the communication concepts that we used to develop our work was the Elaboration Likelihood Model, also known as ELM within the field of communication. The ELM was initially developed in the in the of the 20th century and its main goal was to provide a way to evaluate how persuasive communication can cause a change in the receiver’s attitudes. The model affirms that there are two main route through which persuasive communication act: the central route ad the peripheral route. The central route is usually employed when the person receiving the message has the ability to think and reason on what he the content that he is absorbing. Thus, whatever change in attitude that it can generate tends to be more enduring and persevere on its person. Meanwhile, the peripheral route is regarded as the one vinculated to the receiver’s feelings and spontaneous acts. Once they receive the message, they interpret solely on how the message affected or interfered with its non-rational mind. Besides from being quite similar to the concept that our mind is divided into 2 systems introduced by Daniel Kahneman, we decided to use ELM in our prompts so that ChatGPT’s varies in generating answers that are more and less rational and that affect our route in a different way. In summary, we made sure that the LLM was implementing the concept, and asked for it to focus on different routes according to the message. Messaging Venue/Style</p>
-<p>Social Media texts/videos. Since our target audience is mostly composed by young individuals, we decided to focus the prompts and the project in general on generating and evaluating messages designed to be displayed on social media such as TikTok, Instagram, and X, as well as developing texts that fit the language utilized in such platforms. Also, we decided to on generating short video ideas and asked ChatGPT to develop short scenes or images to represent them on platforms such as TikTok and Instagram Reels. Contrasting Framing</p>
-<p>Gain vs Loss For the main contrasting framing of our project, we decided to choose the Gain vs Loss frame, as we thought that it would be quite interesting to evaluate how ChatGPT would respond to having to generate texts that are framed for loss and gain in terms of vaping. Also, we wanted to see how its safety parameters would affect the generation of texts that might insinuate that vaping can have positive effects on</p>
-<p>The full project can be viewed at:</p>
-<p>https://github.com/yummyhopper/anti_vaping_campaign</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/37d42058-1a41-4dea-8a83-75ec4624664e-1-62d38435-3caa-4973-9dbc-e33d921eebdd.png" class="img-fluid figure-img"></p>
-<figcaption>AI draws a metaphor as the lungs as a tree, full of life without the vape and dead and decrepit with it.</figcaption>
-</figure>
+<section id="what-we-did-last-time-integrating-klaviyo-with-langchain" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-did-last-time-integrating-klaviyo-with-langchain">What we did last time: Integrating Klaviyo with LangChain</h3>
+<div id="f0f98d52-3d62-40de-8d2d-ea9c5efbd555" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> klaviyo_api <span class="im">import</span> KlaviyoAPI</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> LLMChain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="026de839-ddff-4853-aa3f-76bd469bfd01" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5abe97e3-948f-4311-958e-e5998ebae327" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract Klaviyo (private) API key from .env file</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>klaviyo_key<span class="op">=</span>os.getenv(<span class="st">'KLAVIYO_API_KEY'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e3a5ade6-c9f8-42b1-b70f-28a6c1587dcb" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the Klaviyo Python API with the API key</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>klaviyo <span class="op">=</span> KlaviyoAPI(klaviyo_key, max_delay<span class="op">=</span><span class="dv">60</span>, max_retries<span class="op">=</span><span class="dv">3</span>, test_host<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>AttributeError: 'KlaviyoAPI' object has no attribute 'configuration'</code></pre>
+</div>
+</div>
+<div id="06f59fc8-68a9-46cc-b1a1-37662a9cd3a4" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract a sample of Metrics from the Klaviyo API</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>klaviyo.Metrics.get_metrics()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3179e59b-10f7-4a0e-b643-dac05a59efa7" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store a sample customer ID from Klaviyo in an object</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>john_doe<span class="op">=</span><span class="st">"01HVFKKSPHKNC5PV0VNN14TSJ4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fd2aedd7-4119-43f3-8755-1dd2ace9ef1b" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From here we can update a profile with custom properties</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>payload<span class="op">=</span>{ <span class="st">"data"</span>: {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"profile"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"id"</span>: john_doe,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"attributes"</span>: {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">'properties'</span>:{</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">'clv'</span>:<span class="dv">500</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">'churn_risk'</span>:<span class="st">'high'</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">'upsales_propensity'</span>: <span class="st">'80%'</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                <span class="st">'recommended_incentive'</span>: <span class="st">'gift'</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>klaviyo.Profiles.update_profile(john_doe, payload)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9cf35884-3cba-481d-84c4-e87c736b9ba3" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract events from Klaviyo for a given Klaviyo ID</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>events<span class="op">=</span>klaviyo.Events.get_events(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fields_event<span class="op">=</span>[<span class="st">'event_properties'</span>],</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span><span class="op">=</span><span class="ss">f"equals(profile_id,'</span><span class="sc">{</span>john_doe<span class="sc">}</span><span class="ss">')"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">=</span><span class="st">'-datetime'</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="79398f0f-14ac-483c-927e-31bf351a78b5" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract profile data and events for a Klaviyo ID as a string we can feed to LangChain</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> customer_data(custid):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    profile<span class="op">=</span>klaviyo.Profiles.get_profile(custid)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    profile_string<span class="op">=</span><span class="bu">str</span>(profile[<span class="st">'data'</span>][<span class="st">'attributes'</span>])</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    events<span class="op">=</span>klaviyo.Events.get_events(fields_event<span class="op">=</span>[<span class="st">'event_properties'</span>],</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">filter</span><span class="op">=</span><span class="ss">f"and(equals(profile_id,'</span><span class="sc">{</span>custid<span class="sc">}</span><span class="ss">'),equals(metric_id,'YtR57h'))"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        sort<span class="op">=</span><span class="st">'-datetime'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    purchases<span class="op">=</span><span class="st">'Purchases: '</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> events[<span class="st">'data'</span>]:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        purchases<span class="op">=</span>purchases<span class="op">+</span>e[<span class="st">'attributes'</span>][<span class="st">'event_properties'</span>][<span class="st">'Name'</span>]<span class="op">+</span><span class="st">','</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> profile_string<span class="op">+</span><span class="st">', '</span><span class="op">+</span>purchases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b784f403-bc26-4cad-8a75-42c72af5de87" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>customer_data(john_doe)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4bdb4189-a24e-4f91-851c-c9ab39c23a02" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple LLM chain that allows us to produce personalized text based on data from Klaviyo</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>prompt_template <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">Write a short 2 line introduction to an email with a hook from Max's Store to a customer with these </span><span class="sc">{properties}</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">Don't mention the properties or the property values but try</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="st">to use the properties "upsales_propensity" and "recommended_incentive" in the formulation</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(model_name<span class="op">=</span><span class="st">"gpt-4"</span>, temperature<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>llm_chain <span class="op">=</span> LLMChain(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>llm,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>PromptTemplate.from_template(prompt_template)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>intro<span class="op">=</span>llm_chain(data)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intro[<span class="st">'text'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="additional-thoughts" class="level3">
-<h3 class="anchored" data-anchor-id="additional-thoughts">Additional Thoughts</h3>
-<p>As the capabilities of AI systems improve so will their capacity for creating persuasive misinformation. Judging by the ease of generating these campaigns, it seems like this is going to become a real problem and media narrative in the upcoming presidential elections. The old “Russian interference” and “election tampering” allegations will be supercharged and this debate will likely come to the forefront of mainstream news at some point in the near future. This could mean the beginning of the political polarization of AI systems as regulators on both sides of the aisle struggle to cope with these issues and twist the outcomes in their favor. Meanwhile, information that we see online is going to be more unreliable than ever. Appropriate levels of scrutiny from the common scrollers isn’t something we should expect. The good news however is that as powerful a tool AI is for bad actors, it is also going to be powerful for good actors. The focus (amongst other initiatives) for companies, citizens, and governments looking to combat AI misinformation should include AI systems in the solution too. Fight fire with fire. Misinformation detection, automated fact checks, things of this nature are far easier to conduct now than they have been in the past. What we don’t want is a world in which the bad actors are able to leverage the powerful tools and good actors aren’t.</p>
+<section id="this-time-prompt-engineering-in-langchain" class="level3">
+<h3 class="anchored" data-anchor-id="this-time-prompt-engineering-in-langchain">This time: Prompt Engineering in LangChain</h3>
 
 
 </section>
