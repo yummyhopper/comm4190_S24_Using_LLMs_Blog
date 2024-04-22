@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="connecting-to-klaviyo-api" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-to-klaviyo-api">Connecting to Klaviyo API</h3>
 <p>Finally, we can install Klaviyo and connect to our sample customer data.</p>
-<div id="2aa53fac-d6ea-458d-8f86-d154a8060211" class="cell" data-execution_count="31">
+<div id="2aa53fac-d6ea-458d-8f86-d154a8060211" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> klaviyo_api <span class="im">import</span> KlaviyoAPI</span>
@@ -233,20 +233,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7b82165e-2b06-4c8e-8328-6071ab9c6be0" class="cell" data-execution_count="18">
+<div id="4cf6f19e-711b-4098-9291-5c34ccb5e43e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract Klaviyo (private) API key from .env file</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>klaviyo_key<span class="op">=</span><span class="st">'pk_621edc1578843b602857f6bf59b70a15f1'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>klaviyo_key<span class="op">=</span>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0692238e-9475-4147-baca-b6c0cfc8eb7c" class="cell" data-execution_count="19">
+<div id="0692238e-9475-4147-baca-b6c0cfc8eb7c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the Klaviyo Python API with the API key</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>klaviyo <span class="op">=</span> KlaviyoAPI(klaviyo_key, max_delay<span class="op">=</span><span class="dv">60</span>, max_retries<span class="op">=</span><span class="dv">3</span>, test_host<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ad6457ad-84af-4e52-ae3f-fda1c429ebb7" class="cell" data-scrolled="true" data-execution_count="36">
+<div id="ad6457ad-84af-4e52-ae3f-fda1c429ebb7" class="cell" data-scrolled="true" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract a sample of Metrics from the Klaviyo API</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>klaviyo.Metrics.get_metrics()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>{'data': [{'type': 'metric',
    'id': 'R8A4y9',
    'attributes': {'name': 'Subscribed to SMS Marketing',
@@ -402,6 +402,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      'category': 'Internal'}},
    'links': {'self': 'https://a.klaviyo.com/api/metrics/USGkfT/'}},
   {'type': 'metric',
+   'id': 'Uexn8R',
+   'attributes': {'name': 'Subscribed to List',
+    'created': '2024-04-21T21:41:50+00:00',
+    'updated': '2024-04-21T21:41:50+00:00',
+    'integration': {'object': 'integration',
+     'id': '0rG4eQ',
+     'key': 'klaviyo',
+     'name': 'Klaviyo',
+     'category': 'Internal'}},
+   'links': {'self': 'https://a.klaviyo.com/api/metrics/Uexn8R/'}},
+  {'type': 'metric',
    'id': 'UkixYE',
    'attributes': {'name': 'Viewed Product',
     'created': '2024-04-15T00:48:11+00:00',
@@ -445,6 +456,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      'name': 'Klaviyo',
      'category': 'Internal'}},
    'links': {'self': 'https://a.klaviyo.com/api/metrics/Vr68x8/'}},
+  {'type': 'metric',
+   'id': 'W2XfDk',
+   'attributes': {'name': 'Subscribed to Email Marketing',
+    'created': '2024-04-21T21:41:50+00:00',
+    'updated': '2024-04-21T21:41:50+00:00',
+    'integration': {'object': 'integration',
+     'id': '0rG4eQ',
+     'key': 'klaviyo',
+     'name': 'Klaviyo',
+     'category': 'Internal'}},
+   'links': {'self': 'https://a.klaviyo.com/api/metrics/W2XfDk/'}},
   {'type': 'metric',
    'id': 'X8SKGd',
    'attributes': {'name': 'Unsubscribed from SMS Marketing',
@@ -516,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   'prev': None}}</code></pre>
 </div>
 </div>
-<div id="f6003320-8ca1-4374-9476-cea94710d673" class="cell" data-execution_count="21">
+<div id="f6003320-8ca1-4374-9476-cea94710d673" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store a sample customer ID from Klaviyo in an object</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>karine_ruby<span class="op">=</span><span class="st">"01HVFKKSPHKNC5PV0VNN14TSJ4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -527,7 +549,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Karine Ruby’s Customer Profile In Klaviyo’s UI</figcaption>
 </figure>
 </div>
-<div id="326b9067-f757-44ff-8b6c-3b6ab43ad7a2" class="cell" data-scrolled="true" data-execution_count="37">
+<div id="326b9067-f757-44ff-8b6c-3b6ab43ad7a2" class="cell" data-scrolled="true" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a single profile based on the Klaviyo ID</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>profile<span class="op">=</span>klaviyo.Profiles.get_profile(</span>
@@ -535,10 +557,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(profile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'data': {'type': 'profile', 'id': '01HVFKKSPHKNC5PV0VNN14TSJ4', 'attributes': {'email': 'karine.ruby@example.com', 'phone_number': '+16135550142', 'external_id': None, 'anonymous_id': None, 'first_name': 'Karine', 'last_name': 'Ruby', 'organization': None, 'title': None, 'image': None, 'created': '2024-04-15T00:48:18+00:00', 'updated': '2024-04-15T01:34:44+00:00', 'last_event_date': None, 'location': {'address2': None, 'longitude': None, 'zip': None, 'country': None, 'region': None, 'address1': None, 'city': None, 'latitude': None, 'timezone': None, 'ip': None}, 'properties': {'Accepts Marketing': False, 'Shopify Tags': [], 'clv': 500, 'churn_risk': 'high', 'upsales_propensity': '80%', 'recommended_incentive': 'gift'}}, 'relationships': {'lists': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/lists/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/lists/'}}, 'segments': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/segments/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/segments/'}}, 'conversation': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/conversation/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/conversation/'}}}, 'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/'}}}</code></pre>
+<pre><code>{'data': {'type': 'profile', 'id': '01HVFKKSPHKNC5PV0VNN14TSJ4', 'attributes': {'email': 'karine.ruby@example.com', 'phone_number': '+16135550142', 'external_id': None, 'anonymous_id': None, 'first_name': 'Karine', 'last_name': 'Ruby', 'organization': None, 'title': None, 'image': None, 'created': '2024-04-15T00:48:18+00:00', 'updated': '2024-04-21T21:42:21+00:00', 'last_event_date': '2024-04-21T21:41:50+00:00', 'location': {'country': None, 'region': None, 'address2': None, 'address1': None, 'latitude': None, 'zip': None, 'longitude': None, 'city': None, 'timezone': None, 'ip': None}, 'properties': {'Accepts Marketing': True, 'Shopify Tags': [], 'clv': 500, 'churn_risk': 'high', 'upsales_propensity': '80%', 'recommended_incentive': 'gift', '$consent': ['email'], '$source': -6, '$consent_timestamp': '2024-04-21T21:41:48.951Z'}}, 'relationships': {'lists': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/lists/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/lists/'}}, 'segments': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/segments/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/segments/'}}, 'conversation': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/conversation/', 'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/conversation/'}}}, 'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/'}}}</code></pre>
 </div>
 </div>
-<div id="e4c24477-de02-4e20-84ee-03d33b529a52" class="cell" data-execution_count="23">
+<div id="e4c24477-de02-4e20-84ee-03d33b529a52" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From here we can update a profile with custom properties</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>payload<span class="op">=</span>{ <span class="st">"data"</span>: {</span>
@@ -556,7 +578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>     }</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>klaviyo.Profiles.update_profile(karine_ruby, payload)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>{'data': {'type': 'profile',
   'id': '01HVFKKSPHKNC5PV0VNN14TSJ4',
   'attributes': {'email': 'karine.ruby@example.com',
@@ -569,24 +591,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    'title': None,
    'image': None,
    'created': '2024-04-15T00:48:18+00:00',
-   'updated': '2024-04-15T01:34:44+00:00',
-   'last_event_date': None,
+   'updated': '2024-04-21T21:42:21+00:00',
+   'last_event_date': '2024-04-21T21:41:50+00:00',
    'location': {'address2': None,
+    'city': None,
     'zip': None,
     'country': None,
     'region': None,
     'latitude': None,
-    'city': None,
     'address1': None,
     'longitude': None,
     'timezone': None,
     'ip': None},
-   'properties': {'Accepts Marketing': False,
+   'properties': {'Accepts Marketing': True,
     'Shopify Tags': [],
     'clv': 500,
     'churn_risk': 'high',
     'upsales_propensity': '80%',
-    'recommended_incentive': 'gift'}},
+    'recommended_incentive': 'gift',
+    '$consent': ['email'],
+    '$source': -6,
+    '$consent_timestamp': '2024-04-21T21:41:48.951Z'}},
   'relationships': {'lists': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/lists/',
      'related': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/lists/'}},
    'segments': {'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/relationships/segments/',
@@ -596,56 +621,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   'links': {'self': 'https://a.klaviyo.com/api/profiles/01HVFKKSPHKNC5PV0VNN14TSJ4/'}}}</code></pre>
 </div>
 </div>
-<div id="e78b6faa-cf6f-4dbf-8531-c20f607c6a4a" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract events from Klaviyo for a given Klaviyo ID</span></span>
+<div id="fee7262c-839e-442c-9ab4-01d002afc2c5" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract profile data and events for a Klaviyo ID as a string we can feed to LangChain</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>events<span class="op">=</span>klaviyo.Events.get_events(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    fields_event<span class="op">=</span>[<span class="st">'event_properties'</span>],</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span><span class="op">=</span><span class="ss">f"equals(profile_id,'</span><span class="sc">{</span>karine_ruby<span class="sc">}</span><span class="ss">')"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">=</span><span class="st">'-datetime'</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_customer_data(custid):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    profile<span class="op">=</span>klaviyo.Profiles.get_profile(custid)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> profile[<span class="st">'data'</span>]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    attributes <span class="op">=</span> data[<span class="st">'attributes'</span>]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    properties <span class="op">=</span> attributes[<span class="st">'properties'</span>]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> attributes[<span class="st">'location'</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    info <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> attributes.items() <span class="cf">if</span> key <span class="kw">not</span> <span class="kw">in</span> [<span class="st">'properties'</span>, <span class="st">'location'</span>]}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    combined_dict <span class="op">=</span> {<span class="op">**</span>properties, <span class="op">**</span>location, <span class="op">**</span>info}</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> combined_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fee7262c-839e-442c-9ab4-01d002afc2c5" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract profile data and events for a Klaviyo ID as a string we can feed to LangChain</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> customer_data(custid):</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    profile<span class="op">=</span>klaviyo.Profiles.get_profile(custid)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    profile_string<span class="op">=</span><span class="bu">str</span>(profile[<span class="st">'data'</span>][<span class="st">'attributes'</span>])</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    events<span class="op">=</span>klaviyo.Events.get_events(fields_event<span class="op">=</span>[<span class="st">'event_properties'</span>],</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">filter</span><span class="op">=</span><span class="ss">f"and(equals(profile_id,'</span><span class="sc">{</span>custid<span class="sc">}</span><span class="ss">'),equals(metric_id,'RZuScW'))"</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        sort<span class="op">=</span><span class="st">'-datetime'</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    purchases<span class="op">=</span><span class="st">'Purchases: '</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> events[<span class="st">'data'</span>]:</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        purchases<span class="op">=</span>purchases<span class="op">+</span>e[<span class="st">'attributes'</span>][<span class="st">'event_properties'</span>][<span class="st">'Name'</span>]<span class="op">+</span><span class="st">','</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> profile_string<span class="op">+</span><span class="st">', '</span><span class="op">+</span>purchases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="58269cca-fa9e-4baf-93e5-520a54e1ea54" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>get_customer_data(karine_ruby)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>{'Accepts Marketing': True,
+ 'Shopify Tags': [],
+ 'clv': 500,
+ 'churn_risk': 'high',
+ 'upsales_propensity': '80%',
+ 'recommended_incentive': 'gift',
+ '$consent': ['email'],
+ '$source': -6,
+ '$consent_timestamp': '2024-04-21T21:41:48.951Z',
+ 'region': None,
+ 'zip': None,
+ 'address1': None,
+ 'city': None,
+ 'address2': None,
+ 'longitude': None,
+ 'country': None,
+ 'latitude': None,
+ 'timezone': None,
+ 'ip': None,
+ 'email': 'karine.ruby@example.com',
+ 'phone_number': '+16135550142',
+ 'external_id': None,
+ 'anonymous_id': None,
+ 'first_name': 'Karine',
+ 'last_name': 'Ruby',
+ 'organization': None,
+ 'title': None,
+ 'image': None,
+ 'created': '2024-04-15T00:48:18+00:00',
+ 'updated': '2024-04-21T21:42:21+00:00',
+ 'last_event_date': '2024-04-21T21:41:50+00:00'}</code></pre>
 </div>
-<div id="58269cca-fa9e-4baf-93e5-520a54e1ea54" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>customer_data(karine_ruby)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="44e6cd64-fd0c-45ff-8ff6-a2d2d2f284d4" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple LLM chain that allows us to produce personalized text based on data from Klaviyo</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>prompt_template <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">Write a short 2 line introduction to an email with a hook from Max's Store to a customer with these</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">Don't mention the properties or the property values but try to use the properties </span><span class="sc">{upsales_propensity}</span><span class="st"> and </span><span class="sc">{recommended_incentive}</span><span class="st"> in the formulation.</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">Remember not to mention these properties explicitly, but craft your message to resonate with these insights.</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">Address it to </span><span class="sc">{first_name}</span><span class="st">.</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(model_name<span class="op">=</span><span class="st">"gpt-4"</span>, temperature<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>llm_chain <span class="op">=</span> LLMChain(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>llm,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>PromptTemplate.from_template(prompt_template)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>intro<span class="op">=</span>llm_chain(data)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intro[<span class="st">'text'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/anaconda3/share/jupyter/venv/py311_4130_v2/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The class `langchain_community.chat_models.openai.ChatOpenAI` was deprecated in langchain-community 0.0.10 and will be removed in 0.2.0. An updated version of the class exists in the langchain-openai package and should be used instead. To use it run `pip install -U langchain-openai` and import as `from langchain_openai import ChatOpenAI`.
+  warn_deprecated(
+/usr/local/anaconda3/share/jupyter/venv/py311_4130_v2/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The function `__call__` was deprecated in LangChain 0.1.0 and will be removed in 0.2.0. Use invoke instead.
+  warn_deprecated(</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'email': 'karine.ruby@example.com', 'phone_number': '+16135550142', 'external_id': None, 'anonymous_id': None, 'first_name': 'Karine', 'last_name': 'Ruby', 'organization': None, 'title': None, 'image': None, 'created': '2024-04-15T00:48:18+00:00', 'updated': '2024-04-15T01:34:44+00:00', 'last_event_date': None, 'location': {'country': None, 'zip': None, 'latitude': None, 'city': None, 'region': None, 'longitude': None, 'address2': None, 'address1': None, 'timezone': None, 'ip': None}, 'properties': {'Accepts Marketing': False, 'Shopify Tags': [], 'clv': 500, 'churn_risk': 'high', 'upsales_propensity': '80%', 'recommended_incentive': 'gift'}}, Purchases: </code></pre>
-</div>
-</div>
-<div id="44e6cd64-fd0c-45ff-8ff6-a2d2d2f284d4" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple LLM chain that allows us to produce personalized text based on data from Klaviyo</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>prompt_template <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">Write a short 2 line introduction to an email with a hook from Max's Store to a customer with these </span><span class="sc">{properties}</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">Don't mention the properties or the property values but try to use the properties "upsales_propensity" and "recommended_incentive" in the formulation</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(model_name<span class="op">=</span><span class="st">"gpt-4"</span>, temperature<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>llm_chain <span class="op">=</span> LLMChain(</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>llm,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>PromptTemplate.from_template(prompt_template)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>intro<span class="op">=</span>llm_chain(data)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intro[<span class="st">'text'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Subject: Max's Store Exclusive Offer Just for You, Karine!
+<pre><code>Subject: Unwrap a Surprise Just for You, Karine!
 
-Dear Karine, we noticed you have an 80% propensity for our upsales and we think you'll love our latest gift incentive. Let's make your shopping experience even more rewarding!</code></pre>
+Dear Karine, imagine saving more while getting an extra treat with your next purchase from Max's Store!</code></pre>
 </div>
 </div>
 <p>Notice how model has built the unique customer information into its response. Still, this hook is weirdly technical and kind of creepy. In the next post we’ll look at the fun part. Trying to get the an LLM to sell.</p>
