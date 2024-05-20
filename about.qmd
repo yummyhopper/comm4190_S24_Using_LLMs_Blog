@@ -5,4 +5,10 @@ about:
   template: jolla
 ---
 
-About this blog
+Hi, thank you for visiting my blog! A little background on myself, I'm a student at the University of Pennsylvania Annenberg School for 
+Communications with minors in Data Analytics and Philosophy. I'm set to graduate in May 2025 with my bachelor's degree, after which I 
+plan on pursuing my interests in data analytics, digital marketing, and e-commerce. This blog began as an assignment for a class on AI 
+I took Junior Spring, but I've decided to continue it with a more general purpose going forwards. I hope you enjoy. Check out the rest 
+of my website at https://yummyhopper.github.io/MyWebsite.github.io/! I have lots of cool 
+portfolio projects on there too. I'm always looking for new opportunities to learn, share, and work. If you are a potential employer, 
+collaborator, or interested in anything at all, you can reach me at maxo.philly@gmail.com.

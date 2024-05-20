@@ -2,14 +2,14 @@ project:
   type: website
 
 website:
-  title: "Max's LLM Blog"
+  title: "Max's Blog"
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://yummyhopper.github.io/comm4190_S24_Using_LLMs_Blog/
-      - icon: twitter
-        href: https://twitter.com
+      - icon: linkedin
+        href: https://www.linkedin.com/in/max-orenstein-159b8a237/
 format:
   html:
     theme: cosmo
