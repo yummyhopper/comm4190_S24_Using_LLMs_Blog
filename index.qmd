@@ -1,5 +1,5 @@
 ---
-title: My Explorations with LLMs
+title: Stuff From My Brain
 listing:
   contents: posts
   sort: date desc
