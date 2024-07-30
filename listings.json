@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/021_incrementality_in_affiliate/index.html",
+      "/posts/020_attrbution_in_affiliate/index.html",
       "/posts/019_chip_wars/index.html",
       "/posts/018_Search_Is_Changing/index.html",
       "/posts/017_LangChain_4/index.html",
